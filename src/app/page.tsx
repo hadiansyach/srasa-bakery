@@ -1,8 +1,10 @@
+import Image from "next/image";
+
 export default function Home() {
   const menuItems = [
     { name: "Home", href: "#" },
-    { name: "Products", href: "#" },
-    { name: "Services", href: "#" },
+    { name: "Products", href: "#products" },
+    { name: "Services", href: "#services" },
     { name: "About Us", href: "#" },
     { name: "Contact", href: "#" },
   ];
@@ -16,16 +18,20 @@ export default function Home() {
       </div>
 
       {/* Header */}
-      <header className="relative z-1 flex flex-wrap justify-between items-center bg-blue-100 px-4 py-3 md:px-8 md:py-2 shadow-xs">
-        <div className="w-12 h-12 md:w-24 md:h-24 bg-gray-400 flex items-center justify-center rounded-full">
-          Logo Srasa
-        </div>
+      <header className="relative z-1 flex flex-wrap justify-between items-center bg-orange-400 px-4 py-3 md:px-8 md:py-8 shadow-xs">
+        <Image
+          width={100}
+          height={100}
+          src={"/images/logo-srasa.jpg"}
+          className="w-12 h-12 md:w-20 md:h-20 rounded-full object-cover"
+          alt="Logo Srasa"
+        />
         <nav className="flex flex-wrap justify-center md:justify-end space-x-2 md:space-x-4 mt-2 md:mt-0">
           {menuItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              className="text-gray-800 text-sm md:text-base hover:text-black hover:underline transition-transform duration-600"
+              className="text-white text-sm md:text-lg hover:underline transition-transform duration-600"
             >
               {item.name}
             </a>
@@ -60,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* list card services */}
-      <section className="min-h-screen relative z-1 p-8 md:p-16 bg-orange-400">
+      <section id="services" className="relative z-1 p-8 md:p-16 bg-orange-400">
         {/* <div className="relative md:w-1/2 text-center md:text-left p-5">
           <div className="absolute inset-0 bg-gray-100 z-[-1] rounded-lg"></div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
@@ -82,7 +88,7 @@ export default function Home() {
           </div>
         </div> */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {Array.from({ length: 6 }, (_, index) => (
+          {Array.from({ length: 4 }, (_, index) => (
             <div
               key={index}
               className="bg-transparent rounded-md border-1 border-orange-200 py-16 flex flex-col items-center"
@@ -97,7 +103,7 @@ export default function Home() {
       </section>
 
       {/* Product Section */}
-      <section className="relative z-1 flex flex-col items-center min-h-screen p-8 md:py-16 md:px-32">
+      <section id="products" className="relative z-1 flex flex-col items-center min-h-screen p-8 md:py-16 md:px-32">
         <h2 className="text-4xl font-semibold">Our Premium Product</h2>
         <li className="flex gap-x-20 mt-4">
           <a
@@ -139,10 +145,13 @@ export default function Home() {
         </li>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
           {Array.from({ length: 6 }, (_, index) => (
-            <div className="bg-orange-50 border-1 border-grey-700 p-4 flex flex-col items-center">
-              <img 
-                className="w-96 h-96 rounded-sm mb-4"
-                src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            <div key={index} className="bg-orange-50 border-1 border-grey-700 p-4 flex flex-col items-center">
+              <Image 
+                width={300} 
+                height={300}
+                quality={100}
+                src={`/images/foto-produk${index+1}.jpeg`}
+                className="w-96 h-96 object-cover rounded-sm mb-2"
                 alt=""
               />
               <div className="w-full flex justify-between px-1 font-semibold">
@@ -151,7 +160,7 @@ export default function Home() {
               </div>
               <div className="w-full flex justify-between px-1 font-semibold text-lg">
                 <h3 className="font-bold">Product {index + 1}</h3>
-                <p className="text-gray-900">$19.99</p>
+                <p className="text-gray-900">Rp 20.{(index + 1) * 100}</p>
               </div>
             </div>
           ))}
