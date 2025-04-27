@@ -143,8 +143,11 @@ export default function Home() {
           {Array.from({ length: 6 }, (_, index) => (
             <div key={index} className="bg-orange-50 border-1 border-grey-700 p-4 flex flex-col items-center">
               <Image 
-                className="w-96 h-96 rounded-sm mb-4"
-                src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                width={300} 
+                height={300}
+                quality={100}
+                src={`/images/foto-produk${index+1}.jpeg`}
+                className="w-96 h-96 object-cover rounded-sm mb-2"
                 alt=""
               />
               <div className="w-full flex justify-between px-1 font-semibold">
