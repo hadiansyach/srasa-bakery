@@ -160,7 +160,7 @@ export default function Home() {
               </div>
               <div className="w-full flex justify-between px-1 font-semibold text-lg">
                 <h3 className="font-bold">Product {index + 1}</h3>
-                <p className="text-gray-900">$19.99</p>
+                <p className="text-gray-900">Rp 20.{(index + 1) * 100}</p>
               </div>
             </div>
           ))}
