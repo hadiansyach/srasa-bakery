@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* list card services */}
-      <section className="min-h-screen relative z-1 p-8 md:p-16 bg-orange-400">
+      <section className="relative z-1 p-8 md:p-16 bg-orange-400">
         {/* <div className="relative md:w-1/2 text-center md:text-left p-5">
           <div className="absolute inset-0 bg-gray-100 z-[-1] rounded-lg"></div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
@@ -84,7 +84,7 @@ export default function Home() {
           </div>
         </div> */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {Array.from({ length: 6 }, (_, index) => (
+          {Array.from({ length: 4 }, (_, index) => (
             <div
               key={index}
               className="bg-transparent rounded-md border-1 border-orange-200 py-16 flex flex-col items-center"
